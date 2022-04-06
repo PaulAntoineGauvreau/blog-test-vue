@@ -1,6 +1,6 @@
 <template>
 <HeaderComp/>
-<RouterView :blogsTexte='blogs' @add-blog="addBlog"/>
+<RouterView :blogsTexte='blogs' @add-blog="addBlog" @delete-blog="vraimentDelete"/>
 </template>
 
 <script>
@@ -34,7 +34,17 @@ export default {
 
     const data = await res.json()
     this.blogs = [...this.blogs, data]
-    this.$router.push('/blog');
+    this.$router.push('/');
+    },
+    blogModale(idBlog){
+      this.id = idBlog
+      this.showModale = !this.showModale;
+    },
+    async vraimentDelete(id) {
+      const res = await fetch(`https://pag-blog-api.herokuapp.com/blogs/${id}`, {
+          method: 'DELETE',
+      })
+      res.status === 200 ? (this.blogs = this.blogs.filter((blog) => blog.id !== id)) : alert('Error deleting text')
     },
   },
   async created(){

@@ -5,6 +5,7 @@
         <p>{{blog.text}}</p>
         <div class="effacer">
             <small>{{blog.auteur}}</small>
+            <button @click="$emit('delete-blog', blog.id)">Effacer!</button>
             <!-- <button @click="$emit('delete-blog', blog.id)" v-if="nom === blog.auteur">Effacer!</button> -->
         </div>
     </section>
