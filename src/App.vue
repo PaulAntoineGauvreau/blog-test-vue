@@ -1,27 +1,20 @@
 <template>
-  <main>
-    <section v-for="(blog, index) in blogs" :key='index'>
-        <h2>{{blog.titre}}</h2>
-        <p>{{blog.text}}</p>
-        <div class="effacer">
-            <small>{{blog.auteur}}</small>
-            <button @click="$emit('delete-blog', blog.id)" v-if="nom === blog.auteur">Effacer!</button>
-        </div>
-    </section>
-  </main>
+<HeaderComp/>
+<RouterView :blogsTexte='blogs'/>
 </template>
 
 <script>
 
+import HeaderComp from '@/components/HeaderComp.vue'
 
 export default {
   name: 'App',
   components: {
-   
+   HeaderComp
   },
   data(){
     return {
-      blogs: Array
+      blogs: []
     }
   },
   methods: {
