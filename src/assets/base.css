@@ -71,6 +71,16 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #fafafa;
+  
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color:  var(--color-text);
 }
 /* 
 :root {

@@ -1,6 +1,6 @@
 <template>
 <HeaderComp/>
-<RouterView :blogsTexte='blogs'/>
+<RouterView :blogsTexte='blogs' @add-blog="addBlog"/>
 </template>
 
 <script>
@@ -23,6 +23,19 @@ export default {
       const data = await res.json()
       return data
     },
+    async addBlog(blog) {
+      const res = await fetch('https://pag-blog-api.herokuapp.com/blogs', {
+        method: 'POST',
+        headers: {
+          'Content-type' : 'application/json',
+        },
+        body: JSON.stringify(blog) 
+      })
+
+    const data = await res.json()
+    this.blogs = [...this.blogs, data]
+    this.$router.push('/blog');
+    },
   },
   async created(){
     this.blogs = await this.fetchBlog()
@@ -31,12 +44,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import '@/assets/base.css';
 </style>

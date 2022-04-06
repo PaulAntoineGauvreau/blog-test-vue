@@ -19,11 +19,11 @@ const routes = [
     //   name: 'blog',
     //   component: () => import('../views/BlogView.vue')
     // },
-    // {
-    //   path: '/nouveau-texte',
-    //   name: 'nouveau-texte',
-    //   component: () => import('../views/NewTextView.vue')
-    // },
+    {
+      path: '/nouveau-texte',
+      name: 'nouveau-texte',
+      component: () => import('../views/NewTextView.vue')
+    },
     // {
     //   path: '/rect',
     //   name: 'rect',

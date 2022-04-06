@@ -4,7 +4,7 @@
         <RouterLink to="/">Home</RouterLink>
         <RouterLink v-if="nom" to="/about">About</RouterLink>
         <RouterLink v-if="nom" to="/blog">Blog</RouterLink>
-        <RouterLink v-if="nom" to="/nouveau-texte">Nouveau texte</RouterLink>
+        <RouterLink to="/nouveau-texte">Nouveau texte</RouterLink>
       </nav>
       <form @submit="onSubmit">
             <input type="text" v-model="nomUsager" name="nomUsager" placeholder="Ton nom SVP !!!">
