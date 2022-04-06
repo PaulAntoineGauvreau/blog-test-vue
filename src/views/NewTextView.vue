@@ -37,16 +37,29 @@
     }
 </script>
 
-<style scope>
+<style scoped>
   .newText{
-    min-height: 100vh;
-    padding: 60px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
   }
+
+  h1 {
+    text-align: center;
+  }
+
+  form,
+  textarea,
   label,
-  .inputText>input{
+  input{
+    margin:auto;
+    margin-top: 20px;
     display: block;
+    width: 100%;
+    min-height: 40px;
+    max-width: 900px;
   }
-  .inputText>form {
-    margin-top:20px;
-  }
+
 </style>
