@@ -52,8 +52,7 @@
                         }
                     }  else {
                         this.error = true
-                    } 
-               
+                    }
                 }
 
                 // faire l'appel a l'API pour l'authentification ici

@@ -14,11 +14,12 @@ const routes = [
       name: 'login',
       component: ()=>import('@/views/LoginView.vue'),
     },
-    // {
-    //   path: '/blog',
-    //   name: 'blog',
-    //   component: () => import('../views/BlogView.vue')
-    // },
+    {
+      path:'/blog/:id',
+      name: 'blog.show', 
+      component: ()=>import('@/views/BlogShow.vue'),
+      props: route=> ({...route.params, id: parseInt(route.params.id)}),
+      },
     {
       path: '/nouveau-texte',
       name: 'nouveau-texte',

@@ -1,10 +1,10 @@
 <template>
     <header>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">Blog !!!</RouterLink>
         <RouterLink v-if="nom" to="/about">About</RouterLink>
         <RouterLink v-if="nom" to="/blog">Blog</RouterLink>
-        <RouterLink v-if="usagerNom" to="/nouveau-texte">Nouveau texte</RouterLink>
+        <RouterLink v-if="usagerNom" to="/nouveau-texte">Écrire un texte</RouterLink>
       </nav>
       <button class="button" v-if="usagerNom" @click="logout">Logout</button>
       <RouterLink  class="button" v-else to="/Login">Login</RouterLink>

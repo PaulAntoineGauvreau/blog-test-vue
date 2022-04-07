@@ -1,14 +1,13 @@
 <template>
     <main>
-        <section v-for="(blog, index) in blogsTexte" :key='index'>
-        <h2>{{blog.titre}}</h2>
-        <p>{{blog.text}}</p>
-        <div class="effacer">
-            <small>{{blog.auteur}}</small>
-            <!-- <button @click="$emit('delete-blog', blog.id)">Effacer!</button> -->
-                 <button @click="$emit('delete-blog', blog.id)" v-if="blog.auteur === usagerNom">Effacer! {{usagerNom}}</button>
-        </div>
-    </section>
+        <router-link @delete-blog="deleteBlog" class="carteBlog"
+        v-for="(blog, index) in blogsTexte" 
+        :key='index'
+        :to="{name: 'blog.show', params:{id: blog.id} }">
+            <h2>{{blog.titre}}</h2>
+            <p>{{blog.text.substring(0,400)}} ...</p>
+                <small>{{blog.auteur}}</small>
+        </router-link>
   </main>
 </template>
 
@@ -19,6 +18,12 @@ export default {
         blogsTexte: Array,
         usagerNom: String,
     },
+    methods:{
+        deleteBlog(id) {
+            this.$emit('delete-blog',id)
+            
+        }
+    }
 }
 
 </script>
@@ -33,18 +38,24 @@ main{
     padding: 40px 20px;
 }
 
-section {
+.carteBlog {
     padding: 20px;
     border: lightgray 1px solid;
+}
+
+.carteBlog:hover{
+    transform: scale(1.005);
 }
 
 p {
     margin-top : 20px
 }
 
+small,
 button {
     display: block;
     width: 100%;
+    margin-top:20px;
 }
 
 @media (min-width: 50em) {

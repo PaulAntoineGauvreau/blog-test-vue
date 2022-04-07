@@ -1,16 +1,19 @@
 <template>
 <HeaderComp :usagerNom="usagerNom" @logout="logout"/>
 <RouterView :usagerNom="usagerNom" @user-log="userLogguer" :blogsTexte='blogs' @add-blog="addBlog" @delete-blog="vraimentDelete"/>
+<FooterComp/>
 </template>
 
 <script>
 
 import HeaderComp from '@/components/HeaderComp.vue'
+import FooterComp from '@/components/FooterComp.vue'
 
 export default {
   name: 'App',
   components: {
-   HeaderComp
+   HeaderComp,
+    FooterComp
   },
   data(){
     return {
@@ -48,7 +51,6 @@ export default {
       res.status === 200 ? (this.blogs = this.blogs.filter((blog) => blog.id !== id)) : alert('Error deleting text')
     },
     userLogguer(user){
-      
       this.usagerNom = user
     },
     logout(){
