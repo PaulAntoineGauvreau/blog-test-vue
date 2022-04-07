@@ -13,7 +13,7 @@
     export default {
       name: 'NewTextView',
       props: {
-        //nom: "",
+        usagerNom:String,
       },
       data() {
         return {
@@ -27,7 +27,7 @@
           const newBlog = {
             titre: this.titre,
             text: this.texteBlog,
-            auteur: this.nom,
+            auteur: this.usagerNom
           }
           this.$emit('add-blog', newBlog)
           this.texteBlog = ''

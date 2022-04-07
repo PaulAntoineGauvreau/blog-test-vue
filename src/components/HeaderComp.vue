@@ -4,12 +4,10 @@
         <RouterLink to="/">Home</RouterLink>
         <RouterLink v-if="nom" to="/about">About</RouterLink>
         <RouterLink v-if="nom" to="/blog">Blog</RouterLink>
-        <RouterLink to="/nouveau-texte">Nouveau texte</RouterLink>
+        <RouterLink v-if="usagerNom" to="/nouveau-texte">Nouveau texte</RouterLink>
       </nav>
-      <form @submit="onSubmit">
-            <input type="text" v-model="nomUsager" name="nomUsager" placeholder="Ton nom SVP !!!">
-            <input class="boutton" type="submit" value="Bonjour !" />
-      </form>
+      <button class="button" v-if="usagerNom" @click="logout">Logout</button>
+      <RouterLink  class="button" v-else to="/Login">Login</RouterLink>
   </header>
 </template>
 
@@ -18,13 +16,14 @@
     export default {
         name: 'HeaderComp',
         props: {
-            //nom: '',
+            usagerNom: String,
         },
         data() {
             return {
                 nomUsager: '',
                 affichage: false,
                 nom:"",
+                username: "",
             }
         },
         methods: {
@@ -33,12 +32,15 @@
                 const nomUsagerActif = this.nomUsager;
                 this.$emit('nom-usager', nomUsagerActif)
                 this.nomUsager = '';
-            }
+            },
+            logout(){
+                this.$emit('logout')
+            },
         },
     }
 </script>
 
-<style scope>
+<style scoped>
     header{
         display: flex;
         padding: 20px;
@@ -54,7 +56,7 @@
     nav>a {
         margin-right: 10px
     }
-    .boutton {
+    .button {
         background: white;
         border: 2px solid black;
         padding: 5px 10px
@@ -65,4 +67,6 @@
         color:white;
         cursor: pointer;
     }
+
+
 </style>

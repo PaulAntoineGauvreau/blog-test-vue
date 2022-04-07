@@ -5,8 +5,8 @@
         <p>{{blog.text}}</p>
         <div class="effacer">
             <small>{{blog.auteur}}</small>
-            <button @click="$emit('delete-blog', blog.id)">Effacer!</button>
-            <!-- <button @click="$emit('delete-blog', blog.id)" v-if="nom === blog.auteur">Effacer!</button> -->
+            <!-- <button @click="$emit('delete-blog', blog.id)">Effacer!</button> -->
+                 <button @click="$emit('delete-blog', blog.id)" v-if="blog.auteur === usagerNom">Effacer! {{usagerNom}}</button>
         </div>
     </section>
   </main>
@@ -16,8 +16,9 @@
 
 export default {
     props: {
-        blogsTexte: Array
-    }
+        blogsTexte: Array,
+        usagerNom: String,
+    },
 }
 
 </script>
@@ -39,6 +40,11 @@ section {
 
 p {
     margin-top : 20px
+}
+
+button {
+    display: block;
+    width: 100%;
 }
 
 @media (min-width: 50em) {

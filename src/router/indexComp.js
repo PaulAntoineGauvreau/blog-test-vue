@@ -9,11 +9,11 @@ const routes = [
       name: 'home',
       component: HomeView
     },
-    // {
-    //   path: '/patate',
-    //   name: 'patate',
-    //   component: () => import('../views/PatateView.vue')
-    // },
+    {
+      path: '/login',
+      name: 'login',
+      component: ()=>import('@/views/LoginView.vue'),
+    },
     // {
     //   path: '/blog',
     //   name: 'blog',

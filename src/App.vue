@@ -1,6 +1,6 @@
 <template>
-<HeaderComp/>
-<RouterView :blogsTexte='blogs' @add-blog="addBlog" @delete-blog="vraimentDelete"/>
+<HeaderComp :usagerNom="usagerNom" @logout="logout"/>
+<RouterView :usagerNom="usagerNom" @user-log="userLogguer" :blogsTexte='blogs' @add-blog="addBlog" @delete-blog="vraimentDelete"/>
 </template>
 
 <script>
@@ -14,7 +14,8 @@ export default {
   },
   data(){
     return {
-      blogs: []
+      blogs: [],
+      usagerNom: "",
     }
   },
   methods: {
@@ -46,6 +47,14 @@ export default {
       })
       res.status === 200 ? (this.blogs = this.blogs.filter((blog) => blog.id !== id)) : alert('Error deleting text')
     },
+    userLogguer(user){
+      
+      this.usagerNom = user
+    },
+    logout(){
+      this.usagerNom = ""
+    }
+    
   },
   async created(){
     this.blogs = await this.fetchBlog()
