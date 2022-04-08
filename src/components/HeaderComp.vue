@@ -66,11 +66,16 @@
         border-radius: 16px;
         text-transform: uppercase;
         font-weight: 900;
+        align-self: center;
     }
     .button {
         background: white;
         border: 2px solid black;
         padding: 5px 10px
+    }
+
+    nav {
+        display: flex;
     }
 
     .button:hover{
