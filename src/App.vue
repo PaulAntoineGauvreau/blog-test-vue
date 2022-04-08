@@ -2,6 +2,7 @@
 <HeaderComp :usagerNom="usagerNom" @logout="logout"/>
 <RouterView :usagerNom="usagerNom" @user-log="userLogguer" :blogsTexte='blogs' @add-blog="addBlog" @delete-blog="vraimentDelete"/>
 <FooterComp/>
+
 </template>
 
 <script>
@@ -56,7 +57,8 @@ export default {
     },
     logout(){
       this.usagerNom = ""
-    }
+    },
+    
     
   },
   async created(){

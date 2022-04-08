@@ -1,10 +1,14 @@
 <template>
     <main>
-        <h1>{{blog.titre}}</h1>
-        <img :src="`https://res.cloudinary.com/dhlvev5oz/image/upload/blog/${blog.image}`" :alt="blog.titre">
-        <p>{{blog.text}}</p>
-        <small>{{blog.auteur}}</small>
-        <button @click="deleteTexte(blog.id)" v-if="blog.auteur === usagerNom">Effacer! {{usagerNom}}</button>
+        <header>
+            <img :src="`https://res.cloudinary.com/dhlvev5oz/image/upload/${blog.image}`" :alt="blog.titre">
+        </header>
+        <section>
+            <h1>{{blog.titre}}</h1>
+            <p>{{blog.text}}</p>
+            <small>{{blog.auteur}}</small>
+            <button @click="deleteTexte(blog.id)" v-if="blog.auteur === usagerNom">Effacer!</button>
+        </section>
     </main>
 </template>
 
@@ -40,7 +44,7 @@ export default {
 </script>
 
 <style scoped>
-    main{
+    section{
         max-width: 900px;
         min-height: 55vh;
         margin: auto;
@@ -52,10 +56,24 @@ export default {
         display: block;
         width: 100%;
         margin-top:20px;
+        max-width: 350px;
     }
-    img,
     p{
         margin-top:20px;
         max-width: 60ch;
+    }
+    header {
+        max-width: 1400px;
+        margin: auto;
+        overflow: hidden;
+    }
+    img{
+        width: 100%;
+    }
+
+    button {
+        border: lightgray solid 1px;
+        height: 30px;
+        margin-top: 20px;
     }
 </style>

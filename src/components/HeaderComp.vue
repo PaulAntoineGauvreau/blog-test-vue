@@ -1,9 +1,7 @@
 <template>
     <header>
       <nav>
-        <RouterLink to="/">Blog !!!</RouterLink>
-        <RouterLink v-if="nom" to="/about">About</RouterLink>
-        <RouterLink v-if="nom" to="/blog">Blog</RouterLink>
+        <RouterLink to="/">Blog 45/47</RouterLink>
         <RouterLink v-if="usagerNom" to="/nouveau-texte">Écrire un texte</RouterLink>
       </nav>
       <button class="button" v-if="usagerNom" @click="logout">Logout</button>
@@ -54,7 +52,20 @@
 
     header>form input,
     nav>a {
-        margin-right: 10px
+        margin-right: 20px
+    }
+
+    a:hover:not(nav>a:first-of-type) {
+        border-bottom: 2px solid #222222;
+    }
+
+    nav>a:first-of-type {
+        background: black;
+        color: white;
+        padding: 5px 20px;
+        border-radius: 16px;
+        text-transform: uppercase;
+        font-weight: 900;
     }
     .button {
         background: white;
