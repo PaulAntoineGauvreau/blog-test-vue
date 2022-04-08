@@ -1,6 +1,7 @@
 <template>
     <main>
         <h1>{{blog.titre}}</h1>
+        <img :src="`https://res.cloudinary.com/dhlvev5oz/image/upload/blog/${blog.image}`" :alt="blog.titre">
         <p>{{blog.text}}</p>
         <small>{{blog.auteur}}</small>
         <button @click="deleteTexte(blog.id)" v-if="blog.auteur === usagerNom">Effacer! {{usagerNom}}</button>
@@ -41,6 +42,7 @@ export default {
 <style scoped>
     main{
         max-width: 900px;
+        min-height: 55vh;
         margin: auto;
         margin-top: 40px;
         padding: 20px;
@@ -50,5 +52,10 @@ export default {
         display: block;
         width: 100%;
         margin-top:20px;
+    }
+    img,
+    p{
+        margin-top:20px;
+        max-width: 60ch;
     }
 </style>

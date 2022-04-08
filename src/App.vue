@@ -49,6 +49,7 @@ export default {
           method: 'DELETE',
       })
       res.status === 200 ? (this.blogs = this.blogs.filter((blog) => blog.id !== id)) : alert('Error deleting text')
+
     },
     userLogguer(user){
       this.usagerNom = user
@@ -66,4 +67,5 @@ export default {
 
 <style>
   @import '@/assets/base.css';
+
 </style>
