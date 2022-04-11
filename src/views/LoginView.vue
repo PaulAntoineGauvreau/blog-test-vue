@@ -75,6 +75,7 @@
     max-width: 325px;
     border: 1px lightgray solid;
     margin-top: 40px;
+    margin-bottom: 30vh;
     border-radius: 8px;
 }
 
